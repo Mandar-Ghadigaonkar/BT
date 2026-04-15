@@ -1,0 +1,114 @@
+Step 1: Install Java JDK 1.8 
+Download Java JDK from the official link: 
+https://www.oracle.com/java/technologies/javase-jdk8
+downloads.html 
+Extract and install Java in C:\Java 
+Open cmd and type: to verify Java installation. 
+ 
+ 
+2. Download Hadoop 
+• Download Hadoop from: 
+https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop
+3.3.0/hadoop- 
+3.3.0.tar.gz 
+• Right-click the .tar.gz file → Show more options → 7-zip → *Extract to C:\Hadoop-3.3.0\ 
+Step 2: Extract Hadoop at C:\Hadoop 
+ 
+Step 3: Setting up the HADOOP_HOME variable 
+Use windows environment variable setting for Hadoop Path setting. 
+ 
+ 
+
+ 
+
+Step 4: Set JAVA_HOME variable 
+Use windows environment variable setting for Hadoop Path setting. 
+ 
+Step 5: Set Hadoop and Java bin directory path 
+ 
+Step 6: Hadoop Configuration : 
+For Hadoop Configuration we need to modify Six files that are listed below- 
+1. Core-site.xml 
+2. Mapred-site.xml 
+3. Hdfs-site.xml 
+4. Yarn-site.xml 
+5. Hadoop-env.cmd 
+Create two folders datanode and 
+ 
+
+ 
+ 
+6. namenode Step 6.1: Core-site.xml 
+configuration 
+<configuration> 
+<property> 
+<name>fs.defaultFS</name> 
+<value>hdfs://localhost:9000</value> 
+</property> 
+</configuration> 
+Step 6.2: Mapred-site.xml configuration 
+<configuration> 
+<property> 
+<name>mapreduce.framework.name</name> 
+<value>yarn</value> 
+</property> 
+</configuration> 
+Step 6.3: Hdfs-site.xml configuration 
+<configuration> 
+<property> 
+<name>dfs.replication</name> 
+<value>1</value> 
+</property> 
+<property> 
+<name>dfs.namenode.name.dir</name> 
+<value>C:\hadoop-2.8.0\data\namenode</value> 
+</property> 
+<property> 
+
+ 
+ 
+<name>dfs.datanode.data.dir</name> 
+<value>C:\hadoop-2.8.0\data\datanode</value> 
+</property> 
+</configuration> 
+Step 6.4: Yarn-site.xml configuration 
+<configuration> 
+<property> 
+<name>yarn.nodemanager.aux-services</name> 
+<value>mapreduce_shuffle</value> 
+</property> 
+<property> 
+<name>yarn.nodemanager.auxservices.mapreduce.shuffle.class</name> 
+<value>org.apache.hadoop.mapred.ShuffleHandler</value> 
+</property> 
+</configuration> 
+Step 6.5: Hadoop-env.cmd configuration 
+Set "JAVA_HOME=C:\Java" (On C:\java this is path to file jdk.18.0) 
+ 
+Step 6.6: Create datanode and namenode folders 
+1. Create folder "data" under "C:\Hadoop-2.8.0" 
+2. Create folder "datanode" under "C:\Hadoop-2.8.0\data" 
+3. Create folder "namenode" under "C:\Hadoop-2.8.0\data" 
+ 
+ 
+ 
+ 
+ 
+  
+
+ 
+Step 7: Format the namenode folder 
+Open command window (cmd) and typing command “hdfs namenode –format” 
+ 
+Step 8: Testing the setup 
+Open command window (cmd) and typing command “start-all.cmd” 
+ 
+
+ 
+ 
+Step 8.1: Testing the setup: 
+Ensure that namenode, datanode, and Resource manager are 
+running Step 9: Open: http://localhost:8088 
+ 
+Step 10: 
+Open: http://localhost:50070 

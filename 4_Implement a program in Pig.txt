@@ -1,0 +1,73 @@
+What is Apache Pig Architecture? 
+Apache Pig is a high-level data processing platform built on Hadoop. It simplifies big 
+data processing by using Pig Latin, a data flow language that allows efficient handling of 
+large datasets in a distributed and parallel manner. 
+Apache Pig Architecture and Components 
+1. Data Storage (Hadoop HDFS) 
+• Raw data comes from multiple sources: IoT devices, websites, mobile applications, logs, etc. 
+• Stored in Hadoop Distributed File System (HDFS) for processing. 
+2. Pig Framework 
+• Converts Pig Latin scripts into MapReduce jobs for parallel execution on Hadoop. 
+• Acts as a middleware between HDFS and execution engines like MapReduce, Tez, or 
+Spark. 
+3. Pig Components and Execution Flow 
+ 
+ 
+  
+Architecture of Apache Pig 
+Apache Pig Components 
+There are several components in the Apache Pig framework. Let’s study these major 
+components in detail: 
+1. Parser 
+• The first step in Pig execution. 
+• Handles Pig Latin scripts and commands in the Grunt shell. 
+• Performs 
+checks: Syntax 
+validation Type 
+checking 
+Other script validations 
+• Generates a Directed Acyclic Graph 
+(DAG): Nodes = Logical 
+operators 
+Edges = Data flow 
+2. Optimizer 
+• Receives the DAG from the parser and optimizes it. 
+• Uses projection and 
+pushdown to: Remove 
+unnecessary columns 
+Reduce data loading, improving query performance 
+3. Compiler 
+• Converts the optimized logical plan into MapReduce jobs. 
+• Automates optimization, so the programmer does not need to manually tune the script. 
+• Reorders execution sequences to maximize performance while maintaining correctness. 
+4. Execution Engine 
+• Submits the compiled MapReduce jobs to Hadoop. 
+• The MapReduce framework executes these jobs to process data. 
+2. Execution Modes in Pig 
+Pig supports two execution modes based on data availability and where the script runs. 
+ 
+
+ 
+ 
+1. Local Mode 
+• Best suited for small datasets. 
+• Runs on a single JVM (Java Virtual Machine). 
+• No parallel processing, as execution is done locally. 
+• Pig loads data from the local file system. 
+Command to start Pig in Local Mode: 
+pig -x local 
+To run Pig in Tez Local Mode (using Tez runtime): 
+pig -x tez_local 
+2. MapReduce Mode (MR Mode) 
+• Requires Hadoop cluster and HDFS setup. 
+• Processes data stored in HDFS. 
+• By default, Pig runs in MapReduce mode, so no need to specify it explicitly. 
+Command to start Pig in MR Mode: 
+pig -x mapreduce 
+4. Pig Job Execution Flow 
+Step-by-step process of execution in Pig: 
+Programmer writes a Pig Latin script and stores it in the local file system. 
+The script is submitted to the Pig Compiler, which converts it into 
+MapReduce jobs. Pig retrieves raw data from HDFS and executes the script. 
+MapReduce jobs process the data, applying transformations and filters. 
+The final result is stored back in HDFS after execution. 

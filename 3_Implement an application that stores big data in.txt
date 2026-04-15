@@ -1,0 +1,28 @@
+Step 1: Download MongoDB 
+ 
+Step 2: Setup to installation 
+ 
+Step 3: Create a connection 
+ 
+Step 4: Create a database and collection 
+ 
+Step 5: Import data 
+
+Step 6: Select the data 
+
+Step 7: Data is imported 
+ 
+Step 8: Update the given data 
+ 
+Step 9: Performing deleting data  
+ 
+Step 10: Inserting data 
+ 
+Step 11: Now go to aggregation and click export to language and select python 
+ 
+Step 12: Copy the code and paste in idle 
+            
+Step 13: Edit the code and Run the code and check the output 
+ 
+Click this two times 
+ 
