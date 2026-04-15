@@ -3,7 +3,7 @@ Download Java JDK from the official link:
 https://www.oracle.com/java/technologies/javase-jdk8
 downloads.html 
 Extract and install Java in C:\Java 
-Open cmd and type: to verify Java installation. 
+Open cmd and type: c: javac -version to verify Java installation. 
  
  
 2. Download Hadoop 
